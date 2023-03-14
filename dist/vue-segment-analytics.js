@@ -1,6 +1,6 @@
 /*!
- * vue-segment-analytics v0.5.2
- * (c) 2022 Ryan Stuart
+ * vue-segment-analytics v0.5.4
+ * (c) 2023 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -8,10 +8,6 @@
   typeof define === 'function' && define.amd ? define(['load-script'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.VueSegmentAnalytics = factory(global.loadScript));
 })(this, (function (loadScript) { 'use strict';
-
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var loadScript__default = /*#__PURE__*/_interopDefaultLegacy(loadScript);
 
   function init(config, callback) {
     if (!config.id || !config.id.length) {
@@ -90,7 +86,7 @@
 
     if (config.debug === false) {
       var source = config.cdnHost + '/analytics.js/v1/' + config.id + '/analytics.min.js';
-      loadScript__default["default"](source, function (error, script) {
+      loadScript(source, function (error, script) {
         if (error) {
           console.warn('Oops! Is not possible to load Segment Analytics script');
           return;
